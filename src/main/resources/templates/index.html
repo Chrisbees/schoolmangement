@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/homePage.css}">
+</head>
+<body>
+<header>
+    <div class="wrapper">
+        <div class="logo">
+            <img src="https://i.postimg.cc/mg4rWBmv/logo.png" alt="">
+        </div>
+        <ul class="nav-area">
+            <li><a th:href="@{/home/index}">Home</a></li>
+            <li><a th:href="@{/home/login}">Login</a></li>
+            <li>
+                <form th:action="@{/home/logout}" method="post" th:hidden="true" name="logoutForm">
+                    <input type="submit" value="logout">
+                </form>
+                <a href="javascript:document.logoutForm.submit()">Logout</a></li>
+            <li><a th:href="@{/school/allStaff}">Admin</a></li>
+            <li><a th:href="@{/parents/register}">Register Pupils</a></li>
+        </ul>
+    </div>
+    <div class="welcome-text">
+        <h1>
+            Welcome to <span>Beesworld</span></h1>
+        <a href="#">Contact US</a>
+    </div>
+</header>
+
+</body>
+</html>

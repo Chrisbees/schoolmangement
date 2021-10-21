@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Students</title>
+    <link rel="stylesheet" th:href="@{/css/styleReg.css}">
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="title">
+        Registration Form
+    </div>
+    <div class="form" >
+        <form th:action="@{/home/registerPupil}" th:object="${registerPupil}" method="post" enctype="multipart/form-data">
+            <input type="hidden" class="input" th:field="*{studentId}">
+            <div class="inputfield">
+                <label>First Name</label>
+                <input type="text" class="input" th:field="*{firstName}">
+            </div>
+            <div class="inputfield">
+                <label>Last Name</label>
+                <input type="text" class="input" th:field="*{lastName}">
+            </div>
+
+            <div class="inputfield">
+                <label>State Of Origin</label>
+                <input type="text" class="input" th:field="*{stateOfOrigin}">
+            </div>
+
+            <div class="inputfield">
+                <label>About Staff</label>
+                <input type="text" class="input" th:field="*{aboutStudent}">
+            </div>
+
+            <div class="inputfield">
+                <label>Education</label>
+                <input type="text" class="input" th:field="*{medicalRecords}">
+            </div>
+
+            <div class="inputfield">
+                <label>Skills</label>
+                <input type="text" class="input" th:field="*{guardiansInformation}">
+            </div>
+
+            <div class="inputfield">
+                <label>Total Fees</label>
+                <input type="number" class="input" th:field="*{totalFees}">
+            </div>
+
+            <div class="inputfield">
+                <label>Fees Paid</label>
+                <input type="number" class="input" th:field="*{feesPaid}"/>
+
+            </div>
+
+            <div class="inputfield">
+                <label>Gender</label>
+                <div class="custom_select">
+                    <select th:field="*{gender}">
+                        <option value="" >Select</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+            </div>
+            <div class="inputfield">
+                <label>Email Address</label>
+                <input type="text" class="input" th:field="*{studentGrade}">
+            </div>
+            <div class="inputfield">
+                <label>Phone Number</label>
+                <input type="text" class="input" th:field="*{phoneNumber}">
+            </div>
+            <div class="inputfield">
+                <label>Address</label>
+                <textarea class="textarea" th:field="*{address}"></textarea>
+            </div>
+            <div class="inputfield">
+                <label>Postal Code</label>
+                <input type="text" class="input" th:field="*{postalCode}">
+            </div>
+            <div class="inputfield terms">
+                <label class="check">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <p>Agreed to terms and conditions</p>
+            </div>
+            <div>
+                <label>Photos: </label>
+                <input type="file" name="productImage" accept="image/png, image/jpeg" id="productImage" >
+
+            </div>
+            <div class="inputfield">
+                <input type="hidden" name="imgNames" th:value="${registerPupil.studentPhotos}">
+                <input type="submit" value="Register" class="btn" >
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+</body>
+</html>

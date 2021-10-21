@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="" th:href="@{/css/studentInfo.css}">
+
+</head>
+<body>
+
+<!-- header section starts  -->
+
+<header>
+
+    <div class="users" th:object="${studentInfo}">
+        <img src="" alt="">
+        <h3 class="name">School Name</h3>
+        <p class="post">front end developer</p>
+    </div>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home">home</a></li>
+            <li><a th:href="@{/school/allStaff}">Staff</a></li>
+            <li><a th:href="@{/student/allStudents}">Students</a></li>
+            <li><a href="#portfolio">About</a></li>
+            <li><a href="#contact">contact</a></li>
+        </ul>
+    </nav>
+
+</header>
+
+<!-- header section ends -->
+
+<div id="menu" class="fas fa-bars"></div>
+
+<!-- home section starts  -->
+
+<div th:class="studentImageInfo" th:each="studentsClass: ${studentInfo}">
+    <div th:class="studentImageInfoClass">
+        <img th:src="@{${studentInfo.photosImagePath}}"
+             alt="#" src="">
+    </div>
+
+
+    <div th:class=" imgContent_info">
+            <div th:class="imgContent_info_inner1">
+                <h1 th:text="${'Student ID: ' + studentInfo.studentId}"></h1>
+                <h1 th:text="${'First Name: ' + studentInfo.firstName}"></h1>
+                <h1 th:text="${'Last Name: ' + studentInfo.lastName}"></h1>
+                <h1 th:text="${'Phone Number: ' + studentInfo.phoneNumber}"></h1>
+                <h1 th:text="${'State of Origin: ' + studentInfo.stateOfOrigin}"></h1>
+                <h1 th:text="${'Address: ' + studentInfo.address}"></h1>
+                <h1 th:text="${'Date of Birth: ' + studentInfo.dob}"></h1>
+            </div>
+            <div th:class="imgContent_info_inner2">
+                <div th:class="updateStudent">
+                    <a th:href="@{/student/studentsInfo/update(studentId=${studentInfo.studentId})}">Update</a>
+                </div>
+                <div th:class="deleteStudent">
+                    <a th:href="@{/student/studentsInfo/delete(studentId=${studentInfo.studentId})}">Delete</a>
+                </div>
+            </div>
+    </div>
+
+
+</div>
+
+<div class="studentInfo" th:each="studentsClass: ${studentInfo}">
+
+    <h1>ABOUT STUDENT</h1>
+    <h1 th:text="${studentInfo.aboutStudent}"></h1>
+
+    <br>
+    <br>
+    <h1>ABOUT GUARDIAN</h1>
+    <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+        ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+        dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+        deserunt mollit anim id est laborum.</h1>
+
+    <br>
+    <br>
+    <h1>SKILLS</h1>
+
+    <br>
+    <br>
+    <h1>MEDICAL HISTORY</h1>
+</div>
+
+<!-- jquery cdn link  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="" th:src="@{/script/script.js}"></script>
+
+
+</body>
+</html>

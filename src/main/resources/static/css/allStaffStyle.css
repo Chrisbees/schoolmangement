@@ -1,0 +1,417 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600&display=swap');
+
+:root{
+    --yellow:#1B1212;
+}
+
+*{
+    font-family: 'Nunito', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none; border:none;
+    text-transform: capitalize;
+    transition: all .2s linear;
+}
+
+*::selection{
+    background:#1B1212;
+    color:#333;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+html::-webkit-scrollbar{
+    width:1.4rem;
+}
+
+html::-webkit-scrollbar-track{
+    background:#222;
+}
+
+html::-webkit-scrollbar-thumb{
+    background:#fec107;
+}
+
+body{
+    background: #1B1212;
+    overflow-x: hidden;
+    padding-left: 35rem;
+}
+
+section{
+    min-height: 100vh;
+    padding:1rem;
+}
+
+.btn{
+    padding:.7rem 3rem;
+    background:#fec107;
+    color:#1B1212;
+    cursor: pointer;
+    margin-top: 1rem;
+    font-size: 2rem;
+    border-radius: 5rem;
+}
+
+
+header{
+    position: fixed;
+    top:0; left:0;
+    z-index: 1000;
+    height:100%;
+    width:30rem;
+    background: #1B1212;
+    color: #333;
+    box-shadow: 0 3px 10px rgba(0, 1, 12, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    text-align: center;
+}
+
+header .user img{
+    height:17rem;
+    width:17rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    color: #333;
+    box-shadow: 0 3px 10px rgba(0, 1, 12, 0.3);
+}
+
+header .user .name{
+    font-size: 3.5rem;
+    color:white;
+}
+
+header .user .post{
+    font-size: 2rem;
+    color:white;
+}
+
+header .navbar{
+    width:100%;
+}
+
+header .navbar ul{
+    list-style: none;
+    padding:1rem 3rem;
+}
+
+
+header .navbar ul li a{
+    display: block;
+    padding:1rem;
+    margin:1.5rem 0;
+    background: #fec107;
+    color:#1B1212;
+    box-shadow: 0 3px 10px rgba(0, 1, 10, 0.5);
+    font-size: 2rem;
+    border-radius: 5rem;
+}
+
+header .navbar ul li a:hover{
+    background:#1B1212;
+    color: white;
+    font-size: 2.3rem;
+}
+
+/* Three image containers (use 25% for four, and 50% for two, etc) */
+.home {
+    margin:50px 70px 0px  30px;
+    padding: 10px;
+    justify-content: center;
+}
+
+.menu_bar{
+    width: 80%;
+    padding: 10px;
+    margin:50px 0px 0px  70px;
+    table-layout: fixed;
+    overflow: hidden;
+}
+.searchBar {
+    float: right;
+    padding:15px;
+    width: 20%;
+    color: white;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 1, 10, 0.5);
+}
+
+.addStudentRedirect a{
+    float: left;
+    /*margin:80px 70px 0  50px;*/
+    padding:15px;
+    text-align: center;
+    font-size: 14px;
+    width: 20%;
+    color: #1B1212;
+    border-radius: 10px;
+    background: #fec107;
+    box-shadow: 0 3px 10px rgba(0, 1, 10, 0.5);
+}
+
+.addStudentRedirect a:hover{
+    background:#1B1212;
+    color: white;
+    width: 22%;
+    font-size: 15px;
+}
+
+input[type=text] {
+    width: 30%;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+/* When the input field gets focus,
+		change its width to 100% */
+input[type=text]:focus {
+    width: 50%;
+}
+
+
+.column h1{
+    font-size: 12px;
+}
+
+/* Three image containers (use 25% for four, and 50% for two, etc) */
+.column {
+    float: left;
+    width: 25%;
+    padding: 5px;
+}
+
+/* Clear floats after image containers */
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.imgContent{
+    background: white;
+    border-radius: 10%;
+    color: #333;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0, 1, 15, 0.3);
+    padding: 20px;
+    margin: 10px;
+    justify-content: center;
+    display: list-item;
+    flex: 25%;
+}
+
+.imgContent:hover{
+    transform: scale(1.1);
+}
+.imgContent img{
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    border-color: #222222;
+}
+
+
+.staffImageInfo{
+    border-radius: 10px;
+    padding: 20px;
+    margin:150px 50px 0  50px;
+    color: #222222;
+    width: 80%;
+    box-shadow: 0 3px 10px rgba(0, 1, 15, 0.3);
+    /*justify-content: center;*/
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: auto auto;
+
+}
+.staffImageInfoClass{
+    background: #fec107;
+    width: 90%;
+    border-radius: 10%;
+    color: #333;
+    margin: 10px;
+    box-shadow: 0 3px 10px rgba(0, 1, 15, 0.3);
+    padding: 2px;
+    float: left;
+    /*justify-content: center;*/
+}
+.staffImageInfoClass img{
+    border-radius: 10%;
+    height: 100%;
+    width: 100%;
+    align-self: center;
+    border-color: #222222;
+}
+
+.imgContent_info{
+    float: right;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 1, 15, 0.3);
+    color: #222222;
+    width: 100%;
+    margin-left: 10px;
+    overflow: hidden;
+    text-after-overflow: ellipsis;
+    white-space: nowrap;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.imgContent_info_inner1{
+    float: left;
+    width: 60%;
+    padding: 10px;
+    margin-right: 20px;
+}
+
+.imgContent_info_inner2{
+    width: 100%;
+}
+.updateStaff{
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    /*margin:0px 50px 0px  100px;*/
+    box-shadow: 0 3px 10px rgba(0, 1, 15, 0.3);
+    background: #fec107;
+    color: white;
+}
+.updateStaff a{
+    font-size: 14px;
+    color: #1B1212;
+}
+
+.deleteStaff{
+    margin-top: 10px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    /*margin:0px 50px 0px  100px;*/
+    box-shadow: 0 3px 10px rgba(0, 1, 15, 0.3);
+    background: #fec107;
+}
+.deleteStaff a{
+    font-size: 14px;
+    color: #1B1212;
+}
+
+.link h1{
+    color: #333;
+}
+
+.imgContent_info h1{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-top: 5px;
+    font-size: 12px;
+    font-family: "Lucida Sans Typewriter";
+}
+
+.staffInfo{
+    background: white;
+    border-radius: 10px;
+    color: #333;
+    box-shadow: 0 3px 10px rgba(0, 1, 15, 0.3);
+    padding: 20px;
+    margin:30px 70px 30px  50px;
+    width: 80.00%;
+    justify-content: center;
+}
+
+.staffInfo h1{
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.home .user img{
+    height:17rem;
+    width:17rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border:.7rem solid var(--yellow);
+}
+
+
+
+
+/* media queries  */
+
+@media (max-width:1200px){
+
+    html{
+        font-size: 55%;
+    }
+
+    .home{
+        padding:1rem 4rem;
+    }
+
+}
+
+@media (max-width:991px){
+
+    header{
+        left:-120%;
+    }
+
+    #menu{
+        display: block;
+    }
+
+    header.toggle{
+        left:0%;
+    }
+
+    body{
+        padding:0;
+    }
+
+}
+
+@media (max-width:768px){
+
+    html{
+        font-size: 50%;
+    }
+
+}
+
+@media (max-width:400px){
+
+    header{
+        width: 100vw;
+    }
+
+    .heading{
+        margin:0 3rem;
+    }
+
+    .about .row .counter .box{
+        width: 100%;
+    }
+
+    .education .box-container .box{
+        width:100%;
+    }
+
+    .portfolio .box-container .box{
+        width:100%;
+    }
+
+    .contact .row form{
+        margin:3rem 0;
+    }
+
+}

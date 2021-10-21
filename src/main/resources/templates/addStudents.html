@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" th:href="@{/css/styleReg.css}"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+    <title>Registration Form</title>
+</head>
+<body>
+<form th:action="@{/parents/register}" th:object="${addParent}" method="post" enctype="multipart/form-data" class="form">
+    <input type="hidden" class="input" th:field="*{parents.parentId}">
+    <input type="hidden" class="input" th:field="*{role.role_id}">
+    <input type="hidden" class="input" th:field="*{role.role_id}">
+
+    <h1 class="text-center">Registration Form</h1>
+    <!-- Progress bar -->
+    <div class="progressbar">
+        <div class="progress" id="progress"></div>
+
+        <div
+                class="progress-step progress-step-active"
+                data-title="Parent"
+        ></div>
+        <div class="progress-step" data-title="Contact"></div>
+        <div class="progress-step" data-title="Child"></div>
+        <div class="progress-step" data-title="Final"></div>
+    </div>
+
+    <!-- Steps -->
+    <!-- 1st -->
+    <div class="form-step form-step-active">
+
+        <div class="input-group">
+            <label for="username">First Name</label>
+            <input type="text" name="username" id="username" th:field="*{parents.firstName}"/>
+        </div>
+        <div class="input-group">
+            <label for="position">Last Name</label>
+            <input type="text" name="position" id="position" th:field="*{parents.lastName}"/>
+        </div>
+        <div class="input-group">
+            <label for="username">Username</label>
+            <input type="text" class="input" th:field="*{parents.username}" placeholder="Username">
+        </div>
+        <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" placeholder="password"
+                   th:field="*{parents.password}"/>
+        </div>
+
+        <div class="">
+            <a href="#" class="btn btn-next">Next</a>
+        </div>
+    </div>
+
+    <!-- 2nd-->
+    <div class="form-step" id="">
+        <div class="input-group">
+            <label>E-mail</label>
+            <input type="email" class="input" th:field="*{parents.email}" placeholder="E-mail">
+        </div>
+        <div class="input-group">
+            <label>Guardian's Information</label>
+            <input type="text" class="input" th:field="*{parents.guardiansInformation}" placeholder="About You">
+        </div>
+        <div class="input-group">
+            <label>Phone</label>
+            <input type="text" class="input" th:field="*{parents.phoneNumber}" placeholder="Phone Number">
+        </div>
+
+        <div class="btns-group">
+            <a href="#" class="btn btn-prev">Previous</a>
+            <a href="#" class="btn btn-next">Next</a>
+        </div>
+    </div>
+
+    <!--3rd-->
+    <!--Students-->
+    <div class="form-step">
+        <div>
+            <input type="hidden" class="input" th:field="*{student.studentId}">
+            <div class="input-group">
+                <label>First Name</label>
+                <input type="text" name="firstname" class="input" th:field="*{student.firstName}" placeholder="First Name">
+            </div>
+            <div class="input-group">
+                <label>Last Name</label>
+                <input type="text" name="lastname" class="input" th:field="*{student.lastName}" placeholder="Last Name">
+            </div>
+            <div class="input-group">
+                <label>State Of Origin</label>
+                <input type="text" class="input" th:field="*{student.stateOfOrigin}" placeholder="State of Origin">
+            </div>
+
+            <div class="input-group">
+                <label>Preferred Class</label>
+                <input type="text" class="input" th:field="*{student.studentClass}" placeholder="Preferred Class">
+            </div>
+            <div class="btns-group">
+                <a href="#" class="btn btn-prev">Previous</a>
+                <a href="#" class="btn btn-next">Next</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 4th -->
+    <div class="form-step">
+        <div class="input-group">
+            <label>Medical Records</label>
+            <input type="text" class="input" th:field="*{student.medicalRecords}" placeholder="Medical Records">
+        </div>
+
+        <div class="input-group">
+            <label>About Child</label>
+            <input type="text" class="input" path th:field="*{student.aboutStudent}" placeholder="About Your Child">
+        </div>
+
+        <div class="input-group">
+            <label>Date Of Birth</label>
+            <input type="date" name="date" th:field="*{student.dob}" placeholder="Birthdate">
+        </div>
+
+        <div class="input-group">
+            <textarea class="textarea" th:field="*{student.address}" placeholder="Home Address"></textarea>
+        </div>
+        <div class="input-group">
+            <input type="text" class="input" th:field="*{student.postalCode}" placeholder="Postal Code">
+        </div>
+
+        <div class="input-group"><select th:field="*{student.gender}">
+            <option value="">Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+            <div class="input-group">
+                <input type="file" name="productImage" accept="image/png, image/jpeg" id="productImage"
+                       placeholder="Upload Child's Photo">
+
+            </div>
+        </div>
+            <div class="btns-group">
+                <a href="#" class="btn btn-prev">Previous</a>
+                <input type="hidden" name="imgNames" th:value="${addParent.parents.parentPhotos}">
+                <input type="submit" value="Submit" class="btn"/>
+            </div>
+    </div>
+
+
+
+</form>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" type="text/javascript"></script>
+<script>const prevBtns = document.querySelectorAll(".btn-prev");
+const nextBtns = document.querySelectorAll(".btn-next");
+const progress = document.getElementById("progress");
+const formSteps = document.querySelectorAll(".form-step");
+const progressSteps = document.querySelectorAll(".progress-step");
+
+let formStepsNum = 0;
+
+nextBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+        formStepsNum++;
+        updateFormSteps();
+        updateProgressbar();
+    });
+});
+
+prevBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+        formStepsNum--;
+        updateFormSteps();
+        updateProgressbar();
+    });
+});
+
+function updateFormSteps() {
+    formSteps.forEach((formStep) => {
+        formStep.classList.contains("form-step-active") &&
+        formStep.classList.remove("form-step-active");
+    });
+
+    formSteps[formStepsNum].classList.add("form-step-active");
+}
+
+function updateProgressbar() {
+    progressSteps.forEach((progressStep, idx) => {
+        if (idx < formStepsNum + 1) {
+            progressStep.classList.add("progress-step-active");
+        } else {
+            progressStep.classList.remove("progress-step-active");
+        }
+    });
+
+    const progressActive = document.querySelectorAll(".progress-step-active");
+
+    progress.style.width =
+        ((progressActive.length - 1) / (progressSteps.length - 1)) * 100 + "%";
+}</script>
+
+
+</body>
+</html>
+
